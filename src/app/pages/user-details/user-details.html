@@ -1,0 +1,41 @@
+<mat-card *ngIf="user" class="user-card">
+  <div class="card-header">
+    <div class="avatar-container">
+      <img mat-card-image [src]="user.avatar" class="user-avatar">
+      <div class="status-indicator"></div>
+    </div>
+    <div class="user-title">
+      <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
+      <mat-card-subtitle>User Profile</mat-card-subtitle>
+    </div>
+  </div>
+  
+  <mat-card-content class="card-content">
+    <div class="info-row">
+      <mat-icon class="info-icon">email</mat-icon>
+      <div class="info-text">
+        <p class="info-label">Email</p>
+        <p class="info-value">{{user.email}}</p>
+      </div>
+    </div>
+    
+    <div class="info-row">
+      <mat-icon class="info-icon">person</mat-icon>
+      <div class="info-text">
+        <p class="info-label">Full Name</p>
+        <p class="info-value">{{user.first_name}} {{user.last_name}}</p>
+      </div>
+    </div>
+  </mat-card-content>
+  
+  <mat-card-actions class="card-actions">
+    <button mat-stroked-button color="primary" (click)="goBack()" class="action-button">
+      <mat-icon>arrow_back</mat-icon>
+      Back to List
+    </button>
+    <button mat-flat-button color="primary" class="action-button">
+      <mat-icon>message</mat-icon>
+      Contact
+    </button>
+  </mat-card-actions>
+</mat-card>

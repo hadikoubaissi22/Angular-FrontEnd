@@ -1,0 +1,147 @@
+@use '@angular/material' as mat;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+.user-card {
+  max-width: 500px;
+  font-family: 'Inter', sans-serif;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #3f51b5, #2196f3);
+    color: white;
+    
+    .avatar-container {
+      position: relative;
+      margin-right: 1.5rem;
+      
+      .user-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        object-fit: cover;
+      }
+      
+      .status-indicator {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: #4CAF50;
+        border: 2px solid white;
+      }
+    }
+    
+    .user-title {
+      mat-card-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      
+      mat-card-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+      }
+    }
+  }
+  
+  .card-content {
+    padding: 1.5rem 2rem;
+    
+    .info-row {
+      display: flex;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .info-icon {
+        margin-right: 1rem;
+        color: #3f51b5;
+        background: rgba(63, 81, 181, 0.1);
+        border-radius: 50%;
+        padding: 8px;
+        font-size: 20px;
+      }
+      
+      .info-text {
+        .info-label {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          color: #757575; 
+          margin-bottom: 0.25rem;
+        }
+        
+        .info-value {
+          font-size: 1rem;
+          color: #212121; 
+          margin: 0;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    
+    .action-button {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      
+      mat-icon {
+        margin-right: 8px;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .user-card {
+    margin: 1rem;
+    
+    .card-header {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.5rem;
+      
+      .avatar-container {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+    
+    .card-actions {
+      flex-direction: column;
+      gap: 0.5rem;
+      
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

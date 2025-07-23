@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <span class="app-title">
+    <mat-icon class="app-icon">people_alt</mat-icon>
+    User Directory
+  </span>
+  
+  <span class="spacer"></span>
+  
+  <div class="search-container">
+    <mat-form-field appearance="outline">
+      <input matInput #searchBox 
+             (input)="searchUser(searchBox.value)" 
+             placeholder="Search users...">
+      <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+  </div>
+</mat-toolbar>

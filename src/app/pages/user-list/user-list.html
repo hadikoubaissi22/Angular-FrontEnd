@@ -1,0 +1,35 @@
+<div class="user-list-container">
+  <!-- Loader -->
+  <div class="loader" *ngIf="isLoading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Error Message -->
+  <div class="error-message" *ngIf="error && !isLoading">
+    {{ error }}
+  </div>
+
+  <!-- User Cards -->
+  <div class="user-grid" *ngIf="!isLoading && !error">
+    <div class="user-card" *ngFor="let user of users" (click)="goToUser(user.id)">
+      <div class="avatar-container">
+        <img [src]="user.avatar" alt="{{user.first_name}}" class="user-avatar">
+      </div>
+      <div class="user-info">
+        <h3 class="user-name">{{user.first_name}} {{user.last_name}}</h3>
+        <div class="user-id">ID: {{user.id}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination-controls" *ngIf="!isLoading && users.length > 0">
+    <button class="pagination-btn" (click)="changePage(-1)" [disabled]="page <= 1">
+      <span class="material-icons">chevron_left</span> Previous
+    </button>
+    <span class="page-indicator">Page {{page}} of {{totalPages}}</span>
+    <button class="pagination-btn" (click)="changePage(1)" [disabled]="page >= totalPages">
+      Next <span class="material-icons">chevron_right</span>
+    </button>
+  </div>
+</div>
